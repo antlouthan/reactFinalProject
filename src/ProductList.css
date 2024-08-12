@@ -46,7 +46,20 @@ body {
     width: 100vw;
     align-items: center;
     justify-content: center;
+    text-align: center;
+    
 }
+
+.product-grid h1 {
+    text-align: center;
+    margin: 20px 0;
+    border-top: 2px solid black; /* Adds a line above the text */
+    border-bottom: 2px solid black; /* Adds a line below the text */
+    display: inline-block; /* Ensure the h1 takes only the space needed for the text */
+}
+
+
+
 .product-list {
     display: flex;
     flex-wrap: wrap;

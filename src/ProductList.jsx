@@ -261,6 +261,13 @@ const handlePlantsClick = (e) => {
         [product.name]: true,
     }));
   };
+
+  const handleRemoveFromCart = (product) => {
+    setAddedToCart((prevState) => ({
+        ...prevState,
+        [product.name]: false, // Reset the addedToCart state for the removed item
+    }));
+};
   
     return (
         <div>
@@ -298,7 +305,7 @@ const handlePlantsClick = (e) => {
                             <div className='product-title'>{plant.name}</div>
                             <div className='product-description'>{plant.description}</div>
                             <div className='product-cost'>{plant.cost}</div>
-                            <button className='product-button' onClick={() => handleAddToCart(plant)}>Add to Cart</button>
+                            <button className='product-button' onClick={() => handleAddToCart(plant)} disabled={addedToCart[plant.name]}>Add to Cart</button>
                         </div>
                         ))}
                     </div>
@@ -307,7 +314,7 @@ const handlePlantsClick = (e) => {
 
         </div>
  ) :  (
-    <CartItem onContinueShopping={handleContinueShopping}/>
+    <CartItem onRemoveFromCart={handleRemoveFromCart} onContinueShopping={handleContinueShopping}/>
 )}
     </div>
     );
